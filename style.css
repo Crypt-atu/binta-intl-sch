@@ -273,3 +273,58 @@ form {
   height: 200px;
   object-fit: cover;
 }
+
+/* Courses Pgae */
+
+.course-header {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+.course-header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+.programs-container {
+  padding: 2rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.program-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.program-header {
+  background-color: #343a40;
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0.5rem;
+}
+.program-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+.program-body {
+  padding: 1rem;
+  text-align: center;
+}
+.department {
+  font-size: 1rem;
+  color: #6c757d;
+  margin: 0.5rem 0 0;
+}
+.program-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
