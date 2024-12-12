@@ -19,26 +19,10 @@ body {
   align-items: center;
 }
 
-<<<<<<< HEAD
- .logo{
-    padding-top: 11.5px;
-    padding-right: 40px;
-    height: 10px;
-    float: left;
-    
-    
-
- }
-
-#navbar{
-    background-color: #333;
-    color: white;
-=======
 .logo {
   padding-top: 22px;
   float: left;
   position: inherit;
->>>>>>> refs/remotes/origin/main
 }
 
 #navbar {
@@ -108,22 +92,12 @@ body {
   float: right;
 }
 
-<<<<<<< HEAD
-#main-footer{
-      background: #333;
-      color: #fff;
-      text-align: center;
-      padding: 10px;
-      margin-top: 5px;
-
-=======
 #main-footer {
   background: #333;
   color: #fff;
   text-align: center;
   padding: 20px;
   margin-top: 40px;
->>>>>>> refs/remotes/origin/main
 }
 
 /*This is where the CONTACTS page begins */
@@ -354,57 +328,3 @@ form {
   height: 200px;
   object-fit: cover;
 }
-
-/*This is for calendar */
- .main-calendar  h1{
-    color: green;
-    font-size: 20px;
- }
-
- .main-calendar d{
- font-size: 15px;
- font-weight: bold;
- padding-top: 60%;
- margin: 0px;
- }
-
- .main-calendar p{
-   padding: 2px;
- }
-
-
- /*This is the styling for admissions*/
- .sculp{
-    margin: 20px;
-
- }
- 
- 
- .apply {
-    border: 2px solid green;
-    text-align: center;
-    margin: 50px;
-    padding:5px;
- }
-.apply h2 {
-    color: green;
-}
-
- .under {
-    border: 2px solid green;
-    text-align: center;
-   margin: 50px;
- }
- .under h2 {
-    color: green;
- }
-
- .grad {
-    border: 2px solid green;
-    text-align: center;
-   margin: 50px;
- }
-
- .grad h2{
-  color: green;
- }
