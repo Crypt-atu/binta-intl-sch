@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendar and Events</title>
+    <link rel="stylesheet" type="text/css" href= {% static "style/style.css" %}/>
+  </head>
+  <body>
+    <header id="main-header">
+      <div class="container">
+        <div class="logo">
+          <img src={% static "images/sec schook.jpg" %} width="22" alt="" />
+        </div>
+        <h1>SEC academy SCHOOL</h1>
+      </div>
+    </header>
+
+    <nav id="navbar">
+      <div class="container">
+        <ul>
+          <li><a href={% url "index" %}>Home</a></li>
+          <li><a href="contact.html">Contacts</a></li>
+          <li><a href={% url "courses" %}>Courses</a></li>
+          <li><a href={% url "school-calendar" %}>Calendar Page</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="calender-header">
+      <h1>Calendar and Events</h1>
+    </div>
+
+    <div class="events-container">
+      {% for calendar in calendars  %}
+      <div class="event-card">
+        <div class="event-date">{{calendar.date|date:"j M"}}<br /></div>
+        <img
+          src="https://picsum.photos/300/200"
+          alt="Event Image"
+          class="event-image"
+        />
+        <div class="event-content">
+          <h3 class="event-title">
+            {{calendar.event}}
+          </h3>
+          <div class="event-time">
+            <img
+              src="https://picsum.photos/16/16"
+              alt="Time Icon"
+              style="width: 16px; height: 16px"
+            />
+            <span>{{calendar.time}}</span>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      <!-- Add more event cards as needed -->
+    </div>
+  </body>
+</html>
