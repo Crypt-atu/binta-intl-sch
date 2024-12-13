@@ -108,18 +108,17 @@ class Results(models.Model):
         return f'{self.student} Result'
 
 
-class calendar(models.Model):
+class SchoolCalendar(models.Model):
     id = models.BigAutoField(primary_key=True)
-    calendar_date = models.DateField(blank=True, null=True)
-    calendar_time = models.TimeField(blank=True, null=True)
-    calendar_event = models.CharField(max_length=150, blank=True, null=True)
+    date = models.DateField(blank=True, null=True)
+    time = models.TimeField(blank=True, null=True)
+    event = models.CharField(max_length=150, blank=True, null=True)
 
     class Meta:
         db_table = 'school_calendar'
 
     def __str__(self):
-        return f'{self.calendar_event}'
-
+        return f'{self.event}'
 
 
 class Students(models.Model):

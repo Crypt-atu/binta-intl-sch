@@ -1,16 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BINTA INTERNATIONAL SCHOOL</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="{% static "style/style.css" %}"/>
   </head>
   <body>
     <header id="main-header">
       <div class="container">
         <div class="logo">
-          <img src="sec schook.jpg" style="height: 50px;"  alt="" />
+          <img src= {% static "images/sec schook.jpg" %} style="height: 50px;"  alt="" />
         </div>
         <h1>SEC ACADEMY SCHOOL</h1>
       </div>
@@ -19,10 +20,10 @@
     <nav id="navbar">
       <div class="container">
         <ul>
-          <li><a href="./index.html">Home</a></li>
-          <li><a href="contact.html">Contacts</a></li>
-          <li><a href="./Courses.html">Courses</a></li>
-          <li><a href="./calender-page.html">Calendar Page</a></li>
+          <li><a href={% url "index" %}>Home</a></li>
+          <li><a href={% url "contact" %}>Contacts</a></li>
+          <li><a href="{% url "courses" %}">Courses</a></li>
+          <li><a href={% url "school-calendar" %}>Calendar Page</a></li>
           <li><a href="./admissions.html">Admissions</a></li>
         </ul>
       </div>
