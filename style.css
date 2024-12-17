@@ -164,59 +164,60 @@ body {
 /* This is for login page */
 form {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Adjust to truly center */
-  padding: 70px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  top: 5%;
+  left: 40%;
+  width: 250px;
+  height: 300px;
+  padding-top: 140px;
+ background-color:#732c44;
+ padding:10px;
+ margin: 70px; 
+ border-radius:13px;
+ transform: translate(-50%, +50%);
+ 
 }
 
-.button {
-  background-color: black;
-  color:white;
-  padding: 10px;
-  border: 5px;
-  margin: 10px;
+.button{
+  margin-top:60px;
+  margin-left: 20px;
+ 
 }
 
 .button:hover {
-  background-color: #732c44;
-  color:black;
-}
-
-.giraffe {
-  padding: 10px;
-  padding-bottom: 20px;
-}
-
-.giraffe .landing {
-  padding-bottom: 30px;
+  color: white;
+  background-color: black;
 }
 
 .giraffe label {
+display: block;
+}
+
+.giraffe h2{
+  font-size: 25px;
+  color: white;
+  padding-left:75px;
+}
+.giraffe a {
   display: block;
+  margin-top: 5%;
+  margin-left: 20%;
+  font-size: 10px;
 }
 
-.giraffe input [type="text"],
-.giraffe textarea {
-  padding: 10px;
-  width: 50%;
+.landing label{
+  padding:5px;
+  padding-top: 10%;
 }
 
-.landing {
-  width: 30px;
-}
-.landing label {
-  padding: 0px;
-  color: black;
+.landing input{
+  width: 190px;
 }
 
-.block {
-  float: left;
-  width: 50%;
+.giraffe .landing{
+  padding-left: 25px;
 }
+
+
 
 /* Calender Styles */
 
@@ -282,7 +283,7 @@ form {
   object-fit: cover;
 }
 
-/* Courses Pgae */
+/* Courses Page */
 
 .course-header {
   background-color: #007bff;
