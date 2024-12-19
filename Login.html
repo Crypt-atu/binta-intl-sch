@@ -8,40 +8,57 @@
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
     <script src='main.js'></script>
 </head>
-<body>
+<body> <header id="main-header">
+    <div class="container">
+      <div class="logo">
+        <img src="sec schook.jpg" style="height: 50px;"  alt="" />
+      </div>
+      <h1>SEC ACADEMY SCHOOL</h1>
+    </div>
+  </header>
+
+  <nav id="navbar">
+    <div class="container">
+      <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="contact.html">Contacts</a></li>
+        <li><a href="./Courses.html">Courses</a></li>
+        <li><a href="./calender-page.html">Calendar Page</a></li>
+        <li><a href="./admissions.html">Admissions</a></li>
+        <li><a href="Login.html">Log in</a></li>
+        <li><a href="Registration.html">Register</a></li> 
+      </ul>
+    </div>
+  </nav>
+
     <style>
         /* Make the body a flex container */
         body {
-            display: fle;
             justify-content: center; /* Center horizontally */
             align-items: center; /* Center vertically */
-            height: 100vh; /* Full height of the viewport */
-            margin: 0; /* Remove default margin */
-        }
-        body {
-      margin: 0;
-      height: 100vh; /* Make the body take up the full viewport height */
-      background-image: url(''); /* Replace with your image path */
-      background-size: cover; /* Ensure the image covers the entire screen */
-      background-position: center; /* Center the image */
-      background-color:burlywood;      
+            line-height: 1;
+        }    
+         
+        body { 
+      background-color: black;     
     }
         
     </style>
 
     <form class="giraffe">
+      <h2>LOGIN</h2>
     <div class="landing">
-         <label>Email: </label>
-         <input type="text" name="Email">
+         <label>Email </label>
+         <input type="email" name="Email">
     </div>
     <div class="landing">
         <label> password</label>
-        <input type="text" name="password">
+        <input type="password" name="password">
     </div>
      <input class="button" type="submit" value="Register" name="">
-     <input class="button" type="submit" value="Sign in" name=""> 
+     <input class="button" type="submit" value="Log in" name=""> 
+     <a href="/forgot-password">Forgot Password?</a>
     </form>
- 
-    
+  
 </body>
 </html>
