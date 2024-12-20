@@ -17,3 +17,10 @@ def SchoolCalendarView(request):
     calendars = SchoolCalendar.objects.all()
     context = {'calendars':calendars}
     return render(request, 'calender-page.html', context)
+
+def Register(request):
+    return render(request, 'registration.html')
+
+
+def home(request):
+    return render(request, 'home.html')

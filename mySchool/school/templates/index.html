@@ -5,13 +5,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BINTA INTERNATIONAL SCHOOL</title>
-    <link rel="stylesheet" type="text/css" href="{% static "style/style.css" %}"/>
+    <link rel="stylesheet" type="text/css" href={% static "style/style.css" %}/>
   </head>
   <body>
     <header id="main-header">
       <div class="container">
         <div class="logo">
-          <img src= {% static "images/sec schook.jpg" %} style="height: 50px;"  alt="" />
+          <img src={% static "images/sec schook.jpg" %} style="height: 50px;"  alt="" />
         </div>
         <h1>SEC ACADEMY SCHOOL</h1>
       </div>
@@ -22,16 +22,16 @@
         <ul>
           <li><a href={% url "index" %}>Home</a></li>
           <li><a href={% url "contact" %}>Contacts</a></li>
-          <li><a href="{% url "courses" %}">Courses</a></li>
+          <li><a href={% url "courses" %}>Courses</a></li>
           <li><a href={% url "school-calendar" %}>Calendar Page</a></li>
 
-          <!-- <li><a href="Login.html">Log in</a></li>
-          <li><a href="Registration.html">Register</a></li>  -->
 
+          <li><a href={% url "login" %}>Log in</a></li>
+          <li><a href={% url "register" %}>Register</a></li> 
         </ul>
       </div>
     </nav>
-
+    {% block section %}
     <section id="showcase">
       <div class="fade-text">
         <h1>YOU ARE WELCOME.</h1>
@@ -69,12 +69,12 @@
       </p>
     </div>
       </aside>
-    
-    
+      {% endblock section %}
+       
+      <footer id="main-footer">
+        <p>Copyright &copy; 2024; My School website</p>
+      </footer>
   
 
-    <footer id="main-footer">
-      <p>Copyright &copy; 2024; My School website</p>
-    </footer>
   </body>
 </html>

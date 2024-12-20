@@ -1,46 +1,83 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>introduction</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
-    <script src='main.js'></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href={% static "style/style.css" %}>
 </head>
 <body>
-    <style>
-        /* Make the body a flex container */
-        body {
-            display: fle;
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-            height: 100vh; /* Full height of the viewport */
-            margin: 0; /* Remove default margin */
-        }
-        body {
-      margin: 0;
-      height: 100vh; /* Make the body take up the full viewport height */
-      background-image: url(''); /* Replace with your image path */
-      background-size: cover; /* Ensure the image covers the entire screen */
-      background-position: center; /* Center the image */
-      background-color:burlywood;      
-    }
-        
-    </style>
+    <header id="main-header">
+        <div class="container">
+            <div class="logo">
+                <img src={% static "images/sec schook.jpg" %} style="height: 50px;"  alt="" />
+              </div>
+          <h1>SEC ACADEMY SCHOOL</h1>
+        </div>
+      </header>
+  
+      <nav id="navbar">
+        <div class="container">
+          <ul>
+            <li><a href={% url "index" %}>Home</a></li>
+            <li><a href={% url "contact" %}>Contacts</a></li>
+            <li><a href={% url "courses" %}>Courses</a></li>
+            <li><a href={% url "school-calendar" %}>Calendar Page</a></li>
+            <li><a href={% url "login" %}>Login</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="registration-header">
+        <h1>Student Registration Form</h1>
+      </div>
 
-    <form class="giraffe">
-    <div class="landing">
-         <label>Email: </label>
-         <input type="text" name="Email">
+    <div class="Register">
+        <div class="Register-name">
+        <label>First Name</label>
+        <input type="text" placeholder="First Name" id="first-name" name="first-name">
+        <label>Middle Name</label>
+        <input type="text" placeholder="Middle Name" id="Middle Name" name="Middle-name">
+            <label>Last Name</label>
+            <input type="text" placeholder="Last Name" id="Last" name="Last">
+           
+        </div>
+        
+        <div class="register-container">
+            <label>E-mail:</label>
+            <input type="email" placeholder="E-mail" name="E-mail">
+        </div>
+        <div class="register-container">
+            <label>Phone number:</label>
+            <input type="number" placeholder="Phone number" name= "First Name">
+        </div>
+        <div class="register-container">
+            <label>Address:</label>
+            <input type="text" placeholder="Address" name="First Name">
+        </div>
+        <div class="register-container">
+            <label>D.O.B:</label>
+            <input type="date" placeholder="E-mail" name="D.O.B">
+        </div>
+        <div class="register-container">
+            <label for="Gender">Select your Gender:</label><br>
+            <select id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select></br>
+        </div>
+        <div class="Register-password">
+            <label>Password</label>
+            <input type="password" placeholder="Password" id="Password" name="Password">
+                <label>Confirm Password</label>
+                <input type="password" placeholder="Confirm Password" id="" name="Confirm Password">
+            </div>
+       <input class="button" type="submit" value="submit">
+
     </div>
-    <div class="landing">
-        <label> password</label>
-        <input type="text" name="password">
-    </div>
-     <input class="button" type="submit" value="Register" name="">
-     <input class="button" type="submit" value="Sign in" name=""> 
-    </form>
- 
+
+    <footer id="main-footer">
+        <p>Copyright &copy; 2024; My School website</p>
+      </footer>
 </body>
 </html>

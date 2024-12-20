@@ -20,8 +20,9 @@ body {
 }
 
 .logo {
-  padding-top: 22px;
-  float: left;
+  padding-top: 10px;
+  float: left ;
+  padding-right:  10px;
   position: inherit;
 }
 
@@ -51,7 +52,7 @@ body {
 }
 
 #showcase {
-  background-image: url("../images/school\ sec\,image\ 2.jpg");
+  background-image: url("../static/images/school_sec_image_2.jpg");
   background-position: center right;
   height: 300px;
   margin-bottom: 30px;
@@ -97,7 +98,7 @@ body {
   color: #fff;
   text-align: center;
   padding: 20px;
-  margin-top: 40px;
+  margin-top: 220px;
 }
 
 /*This is where the CONTACTS page begins */
@@ -118,6 +119,13 @@ body {
 }
 
 .block h2 {
+  color: darkgreen;
+}
+
+.direct{
+  text-align: center;  
+}
+.direct h2{
   color: darkgreen;
 }
 
@@ -153,62 +161,81 @@ body {
   font-size: 10px;
 }
 
-/* This is for registration */
+/* This is for login page */
 form {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Adjust to truly center */
-  padding: 70px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  top: 5%;
+  left: 40%;
+  width: 250px;
+  height: 300px;
+  padding-top: 140px;
+ background-color:#732c44;
+ padding:10px;
+ margin: 70px; 
+ border-radius:13px;
+ transform: translate(-50%, +50%);
+ 
 }
 
-.button {
-  background-color: black;
-  color: white;
-  padding: 10px;
-  border: 5px;
-  margin: 10px;
+.button{
+  margin-top: 50px;
+  margin-left: 130px;
+  text-align: center;
+ 
 }
+
+.giraffe button{
+  margin-top: 50px;
+  margin-left: 130px;
+  text-align: center;
+ 
+}
+
 
 .button:hover {
-  background-color: darkturquoise;
-  color: black;
+  color: white;
+  background-color: black;
 }
 
-.giraffe {
-  padding: 10px;
-  padding-bottom: 20px;
-}
-
-.giraffe .landing {
-  padding-bottom: 30px;
+.giraffe{
+  width: 500px;
+  height: 400px;
+  margin-top: 10px;
 }
 
 .giraffe label {
+display: block;
+}
+
+.giraffe h2{
+  font-size: 25px;
+  color: white;
+  text-align: center;
+}
+.giraffe a {
   display: block;
+  margin-top: 5%;
+  margin-left: 35%;
+  font-size: 20px;
+
 }
 
-.giraffe input [type="text"],
-.giraffe textarea {
-  padding: 10px;
-  width: 50%;
+.landing label{
+  padding:5px;
+  padding-top: 10%;
 }
 
-.landing {
-  width: 30px;
-}
-.landing label {
-  padding: 0px;
-  color: black;
+.landing input{
+  width: 190px;
+  height: 30px;
 }
 
-.block {
-  float: left;
-  width: 50%;
+.giraffe .landing{
+  text-align: center;
+  padding-left: 25px;
 }
+
+
 
 /* Calender Styles */
 
@@ -274,7 +301,7 @@ form {
   object-fit: cover;
 }
 
-/* Courses Pgae */
+/* Courses Page */
 
 .course-header {
   background-color: #007bff;
@@ -327,4 +354,93 @@ form {
   width: 100%;
   height: 200px;
   object-fit: cover;
+}
+
+/* Registration Styles*/
+.registration-header{
+  background-color:#28a745;
+  text-align: center;
+  padding: 10px 7px;
+}
+.Register {
+ 
+  align-items: center;
+  padding: px;
+  padding-top: 30px;
+  padding-left: 30px;
+}
+
+.Register label{
+  display: block;
+}
+
+ .Register-name{
+color: black;
+display: flex;
+gap: 10px;
+align-items: center;
+
+}
+
+.Register-name input {
+  padding: 8px;
+  font-size: 16px;
+  width: 150px;
+}
+
+.register-container{
+  color: black;
+  gap: 10px;
+  align-items: center;
+  display: flex;
+  padding: 10px;
+}
+
+.register-container input{
+  padding: 8px;
+  width: 25%;
+}
+
+.Register-password{
+  color: black;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+} 
+
+.Register-password input{
+  padding: 8px;
+  font-size: 16px;
+  width: 300px;
+}
+
+.Register .button {
+  width: 250px; 
+  height: 50px;
+  background-color: green;
+  margin-left: 30%;
+  margin-top: 5%;
+  border-radius: 20px;  
+}
+
+/* faculty style */
+.faculties-header{
+ background-color:#28a745;
+ padding: 2px; 
+ text-align: center;
+} 
+
+.faculties-container{
+  padding: 15 10px;
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+ gap: 10px;
+
+}
+
+.faculties-card {
+  border: 10px solid black;
+  background-color: yellow;
+  display: flex;
 }
