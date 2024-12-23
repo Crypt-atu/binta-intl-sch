@@ -1,0 +1,121 @@
+/* Registration Styles */
+
+.registration-header {
+  background-color: #28a745;
+  text-align: center;
+  padding: 10px 7px;
+}
+div.form-div {
+  width: 100vw;
+  /* height: 100vh; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+div.form-div form {
+  background-color: #732c44;
+  padding: 10px;
+  border-radius: 10px;
+  width: 400px;
+}
+
+div.form-div form .register-container {
+  margin: 15px 0;
+}
+
+form input {
+  display: block;
+  width: 99%;
+  padding: 10px 0;
+}
+
+form label {
+  color: white;
+  padding-top: 10px;
+}
+
+form .select-gender {
+  width: 100%;
+  padding: 10px;
+}
+
+form .button {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+
+input[type="checkbox"] {
+  /* all: unset; */
+    display: inline;
+    width:  fit-content;
+    margin-right: 5px;
+    margin-bottom: 15px;
+}
+
+
+/* 
+div.Register {
+    width: 400px;
+    display: flex;
+}
+
+.Register label {
+    display: block;
+    width: 100%;
+}
+
+
+  
+  .Register label{
+    display: block;
+  }
+  
+   .Register-name{
+    background-color: red;
+    width: 100%;
+
+  }
+  
+  .Register-name input {
+    padding: 8px;
+    font-size: 16px;
+    width: 150px;
+  }
+  
+  .register-container{
+    color: black;
+    gap: 10px;
+    align-items: center;
+    display: flex;
+    padding: 10px;
+  }
+  
+  .register-container input{
+    padding: 8px;
+  }
+  
+  .Register-password{
+    color: black;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  } 
+  
+  .Register-password input{
+    padding: 8px;
+    font-size: 16px;
+    width: 300px;
+  }
+  
+  .Register .button {
+    width: 250px; 
+    height: 50px;
+    background-color: green;
+    margin-left: 30%;
+    margin-top: 5%;
+    border-radius: 20px;  
+  } */

@@ -1,8 +1,10 @@
 from django.urls import path
 from school import views
-from django.contrib.auth import views as auth_views
 
 urlpatterns = [
+    #Path for Authenticated Users
+    path('home/', views.home, name="home"),
+    
     path('index/', views.index, name='index'),
     path('contact/', views.contact, name = "contact"),
     path('courses/', views.Course, name='courses'),
@@ -10,8 +12,7 @@ urlpatterns = [
     path('register/', views.Register, name="register"),
 
     #Path to the Login & Logout Views
-    path('login/', auth_views.LoginView.as_view(template_name = 'Login.html'), name = 'login'),
+    path('login/', views.student_login, name = 'login'),
     
-    #Path for Authenticated Users
-    path('home/', views.home, name="home"),
+    
 ]

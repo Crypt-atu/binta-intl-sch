@@ -1,0 +1,91 @@
+/* This is for login page */
+.form-div {
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+.login-form{
+    width: 250px;
+    height: 300px;
+    padding-top: 140px;
+    background-color:#732c44;
+    padding:10px;
+    margin: 70px; 
+    border-radius: 13px;
+    
+  }
+  
+  .button{
+    margin-top: 50px;
+    margin-left: 130px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .login-form button{
+    margin-top: 10px;
+    margin-left: 130px;
+    text-align: center;
+   
+  }
+  
+  
+  .button:hover {
+    color: white;
+    background-color: black;
+  }
+  
+  .login-form{
+    width: 500px;
+    height: 400px;
+    margin-top: 10px;
+  }
+  
+  .login-form label {
+  display: block;
+  }
+  
+  .login-form h2{
+    font-size: 25px;
+    color: white;
+    text-align: center;
+  }
+  .login-form a {
+    display: block;
+    margin-top: 5%;
+    margin-left: 35%;
+    font-size: 20px;
+  
+  }
+  
+  .landing .pass{
+    padding:5px;
+    padding-top: 5%;
+  }
+  
+  .landing input{
+    margin-left: 120px;
+    display: block;
+    width: 190px;
+    height: 30px;
+  }
+  
+  .login-form .landing{
+    text-align: center;
+    padding-left: 25px;
+  }
+
+
+  /*View Password*/
+  .landing input[type="checkbox"] {
+  /* all: unset; */
+    /* display: inline; */
+    width:  fit-content;
+    margin-left: 120px;
+    margin-top: -23px;
+   
+}

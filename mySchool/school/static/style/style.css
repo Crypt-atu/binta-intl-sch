@@ -52,9 +52,13 @@ body {
 }
 
 #showcase {
-  background-image: url("../static/images/school_sec_image_2.jpg");
-  background-position: center right;
-  height: 300px;
+  /* background-image: url("../images/school_sec_image_2.jpg"); */
+  background-image: url('../images/african.jpg');
+  /* background-image: url("https://picsum.photos/id/237/200/300"); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 90vh;
   margin-bottom: 30px;
   text-align: center;
 }
@@ -161,79 +165,7 @@ body {
   font-size: 10px;
 }
 
-/* This is for login page */
-form {
-  position: absolute;
-  top: 5%;
-  left: 40%;
-  width: 250px;
-  height: 300px;
-  padding-top: 140px;
- background-color:#732c44;
- padding:10px;
- margin: 70px; 
- border-radius:13px;
- transform: translate(-50%, +50%);
- 
-}
 
-.button{
-  margin-top: 50px;
-  margin-left: 130px;
-  text-align: center;
- 
-}
-
-.giraffe button{
-  margin-top: 50px;
-  margin-left: 130px;
-  text-align: center;
- 
-}
-
-
-.button:hover {
-  color: white;
-  background-color: black;
-}
-
-.giraffe{
-  width: 500px;
-  height: 400px;
-  margin-top: 10px;
-}
-
-.giraffe label {
-display: block;
-}
-
-.giraffe h2{
-  font-size: 25px;
-  color: white;
-  text-align: center;
-}
-.giraffe a {
-  display: block;
-  margin-top: 5%;
-  margin-left: 35%;
-  font-size: 20px;
-
-}
-
-.landing label{
-  padding:5px;
-  padding-top: 10%;
-}
-
-.landing input{
-  width: 190px;
-  height: 30px;
-}
-
-.giraffe .landing{
-  text-align: center;
-  padding-left: 25px;
-}
 
 
 
@@ -356,72 +288,7 @@ display: block;
   object-fit: cover;
 }
 
-/* Registration Styles*/
-.registration-header{
-  background-color:#28a745;
-  text-align: center;
-  padding: 10px 7px;
-}
-.Register {
- 
-  align-items: center;
-  padding: px;
-  padding-top: 30px;
-  padding-left: 30px;
-}
 
-.Register label{
-  display: block;
-}
-
- .Register-name{
-color: black;
-display: flex;
-gap: 10px;
-align-items: center;
-
-}
-
-.Register-name input {
-  padding: 8px;
-  font-size: 16px;
-  width: 150px;
-}
-
-.register-container{
-  color: black;
-  gap: 10px;
-  align-items: center;
-  display: flex;
-  padding: 10px;
-}
-
-.register-container input{
-  padding: 8px;
-  width: 25%;
-}
-
-.Register-password{
-  color: black;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-} 
-
-.Register-password input{
-  padding: 8px;
-  font-size: 16px;
-  width: 300px;
-}
-
-.Register .button {
-  width: 250px; 
-  height: 50px;
-  background-color: green;
-  margin-left: 30%;
-  margin-top: 5%;
-  border-radius: 20px;  
-}
 
 /* faculty style */
 .faculties-header{
