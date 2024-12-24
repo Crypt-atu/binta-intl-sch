@@ -1,4 +1,24 @@
 {% extends "index.html" %}
-{% block section %}
+{% block nav %}
+    <nav id="navbar">
+      <div class="container">
+        <ul>
+          <li><a href={% url "home" %}>Home</a></li>
+          <li><a href={% url "contact" %}>Contacts</a></li>
+          <li><a href={% url "courses" %}>Courses</a></li>
+          <li><a href={% url "school-calendar" %}>Calendar Page</a></li>
 
+
+          <li><a href={% url "logout" %} style="color: red;">Logout</a></li> 
+        </ul>
+      </div>
+    </nav>
+    {% endblock nav %}
+
+{% block section %}
+    <section id="showcase">
+      <div class="fade-text">
+        <h1>YOU ARE WELCOME {{request.user.first_name}}</h1>
+      </div>
+    </section>
 {% endblock section %}

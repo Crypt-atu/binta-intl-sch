@@ -13,6 +13,7 @@ urlpatterns = [
 
     #Path to the Login & Logout Views
     path('login/', views.student_login, name = 'login'),
+    path('logout/', views.logout_view, name='logout'),
     
     
 ]

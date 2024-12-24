@@ -53,8 +53,8 @@ body {
 
 #showcase {
   /* background-image: url("../images/school_sec_image_2.jpg"); */
-  background-image: url('../images/african.jpg');
-  /* background-image: url("https://picsum.photos/id/237/200/300"); */
+  /* background-image: url('../images/african.jpg'); */
+  background-image: url("https://fastly.picsum.photos/id/4/5000/3333.jpg?hmac=ghf06FdmgiD0-G4c9DdNM8RnBIN7BO0-ZGEw47khHP4");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

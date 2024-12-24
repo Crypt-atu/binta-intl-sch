@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from .models import *
 from django.contrib import messages
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from .forms import StudentRegistrationForm, StudentLoginForm
-from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
@@ -28,6 +28,8 @@ def Register(request):
         if form.is_valid():
             form.save()
             return redirect('login')
+        else:
+            messages.error(request, "Your password can’t be too similar to your other personal information, Your password must contain at least 8 characters, Your password can’t be a commonly used password, Your password can’t be entirely numeric.")
     else:
         form = StudentRegistrationForm()
 
@@ -40,21 +42,22 @@ def student_login(request):
         if form.is_valid():
             email = form.cleaned_data.get('email')
             password = form.cleaned_data.get('password')
-            print(f"Attempting to authenticate user with email: {email}")  # Debugging line
             user = authenticate(request, email=email, password=password)
             if user is not None:
-                print("User authenticated successfully!")  # Debugging line
                 login(request, user)
                 return redirect('home')
-            else:
-                print("Authentication failed!")  # Debugging line
-                form.add_error(None, 'Invalid email or password')
+        else:
+            messages.error(request, "Invalid Username or Password")        
     else:
         form = StudentLoginForm()
 
     return render(request, 'Login.html', {'form': form})
 
+def logout_view(request):
+    logout(request)
+    return redirect('login')
 
 
+@login_required(login_url='login')
 def home(request):
     return render(request, 'home.html')
