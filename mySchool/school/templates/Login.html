@@ -1,84 +1,108 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Login</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href="{% static 'style/style.css' %}">
-    <link rel='stylesheet' type='text/css' media='screen' href="{% static 'style/login.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="{% static 'style/style.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="{% static 'style/login.css' %}"
+    />
     <script>
-        function togglePassword() {
-            const password = document.getElementById("id_password");
-            const checkbox = document.getElementById("show-password");
-            if (checkbox.checked) {
-                password.type = "text";
-            } else {
-                password.type = "password";
-            }
+      function togglePassword() {
+        const password = document.getElementById("id_password");
+        const checkbox = document.getElementById("show-password");
+        if (checkbox.checked) {
+          password.type = "text";
+        } else {
+          password.type = "password";
         }
+      }
     </script>
-</head>
-<body> 
+  </head>
+  <body>
     <header id="main-header">
-        <div class="container">
-            <div class="logo">
-                <img src="{% static 'images/sec schook.jpg' %}" style="height: 50px;" alt="" />
-            </div>
-            <h1>SEC ACADEMY SCHOOL</h1>
+      <div class="container">
+        <div class="logo">
+          <img
+            src="{% static 'images/sec schook.jpg' %}"
+            style="height: 50px"
+            alt=""
+          />
         </div>
+        <h1>SEC ACADEMY</h1>
+      </div>
     </header>
 
     <nav id="navbar">
-        <div class="container">
-            <ul>
-                <li><a href="{% url 'index' %}">Home</a></li>
-                <li><a href="{% url 'contact' %}">Contacts</a></li>
-                <li><a href="{% url 'courses' %}">Courses</a></li>
-                <li><a href="{% url 'school-calendar' %}">Calendar Page</a></li>
-                <li><a href="{% url 'login' %}">Log in</a></li>
-                <li><a href="{% url 'register' %}">Register</a></li> 
-            </ul>
-        </div>
+      <div class="container">
+        <ul>
+          <li><a href="{% url 'index' %}">Home</a></li>
+          <li><a href="{% url 'contact' %}">Contacts</a></li>
+          <li><a href="{% url 'courses' %}">Courses</a></li>
+          <li><a href="{% url 'school-calendar' %}">Calendar Page</a></li>
+          <li><a href={% url "fac_dep" %}>Faculties</a></li>
+          <li><a href="{% url 'login' %}">Log in</a></li>
+          <li><a href="{% url 'register' %}">Register</a></li>
+        </ul>
+      </div>
     </nav>
 
     <style>
-        body {
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-            line-height: 1;
-            background-color: black;
-        }
+      body {
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        line-height: 1;
+        {% comment %} background-color: black; {% endcomment %}
+        background: wheat;
+      }
     </style>
-    {% if messages %}
-        {% for message in messages  %}
-        <script>
-            alert("{{message}}")
-        </script>
-        {% endfor %}
-    {% endif %}
+    {% if messages %} {% for message in messages %}
+    <script>
+      alert("{{message}}");
+    </script>
+    {% endfor %} {% endif %}
     <div class="form-div">
-        <form class="login-form" method="post" action="{% url 'login' %}">
-            {% csrf_token %}
-            <h2>LOGIN</h2>
-            <div class="landing">
-                <label class="pass">Email</label>
-                {{ form.email }}
-            </div>
-            <div class="landing">
-                <label class="pass">Password</label>
-                {{ form.password }}
-                <br />
-                <label>
-                    Show Password
-                    <input type="checkbox" id="show-password" onclick="togglePassword()">
-                </label>
-            </div>
-            <button class="button" type="button" onclick="window.location.href='{% url 'register' %}';">Register</button>
-            <button class="button" type="submit">Login</button>
-            <a href="/forgot-password">Forgot Password?</a>
-        </form>
+      <form class="login-form" method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <h2>LOGIN</h2>
+        <div class="landing">
+          <label class="pass">Email</label>
+          {{ form.email }}
+        </div>
+        <div class="landing">
+          <label class="pass">Password</label>
+          {{ form.password }}
+          <br />
+          <label>
+            Show Password
+            <input
+              type="checkbox"
+              id="show-password"
+              onclick="togglePassword()"
+            />
+          </label>
+        </div>
+        <button
+          class="button"
+          type="button"
+          onclick="window.location.href='{% url 'register' %}';"
+        >
+          Register
+        </button>
+        <button class="button" type="submit">Login</button>
+        <a href="/forgot-password">Forgot Password?</a>
+      </form>
     </div>
-</body>
+  </body>
 </html>

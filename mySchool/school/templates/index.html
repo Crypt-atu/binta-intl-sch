@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BINTA INTERNATIONAL SCHOOL</title>
     <link rel="stylesheet" type="text/css" href={% static "style/style.css" %}/>
+     <link rel="stylesheet" type="text/css" href={% static "style/enroll.css" %}/>
   </head>
   <body>
     <header id="main-header">
@@ -13,7 +14,7 @@
         <div class="logo">
           <img src={% static "images/sec schook.jpg" %} style="height: 50px;"  alt="" />
         </div>
-        <h1>SEC ACADEMY SCHOOL</h1>
+        <h1>SEC ACADEMY</h1>
       </div>
     </header>
     {% block nav %}
@@ -24,8 +25,7 @@
           <li><a href={% url "contact" %}>Contacts</a></li>
           <li><a href={% url "courses" %}>Courses</a></li>
           <li><a href={% url "school-calendar" %}>Calendar Page</a></li>
-
-
+          <li><a href={% url "fac_dep" %}>Faculties</a></li>
           <li><a href={% url "login" %}>Log in</a></li>
           <li><a href={% url "register" %}>Register</a></li> 
         </ul>
@@ -43,30 +43,40 @@
       <section id="main">
         <h1>Welcome</h1>
         <p>
-          Lorem, ipsumolor sit amet consectetur adipisicing elit. Omnis iste
-          exercitationem beatae doloremque harum magni repellendus eos ullam
-          vero facere ab eaque quo, hic magnam alias eum reiciendis voluptas
-          laudantium
+          SEC Academy is a prestigious educational institution known for its commitment to academic excellence
+          and holistic student development. Located in a vibrant and welcoming environment, the school 
+          offers a wide range of academic programs designed to inspire and challenge students. 
+          With a focus on fostering critical thinking, creativity, and leadership skills, 
+          SEC Academy prepares students for success in both their academic pursuits and future careers. 
+          The school boasts state-of-the-art facilities, dedicated faculty, and a diverse curriculum that caters to a variety of learning styles and interests. 
+          Whether it's through innovative teaching methods, extracurricular activities, or a nurturing community, SEC Academy stands as a leader in shaping the minds of tomorrow.
         </p>
       </section>
       <aside id="sidebar">
         <p>
-          Lorem- ipsum dolor sit amet consectetur, adipisicing elit. Quidem
-          doloribus, aperiam ipsum nisi consequatur maiores ratione voluptas
-          alias itaque possimus, consequuntur officia veniam excepturi
-          cupiditate nihil. Temporibus blanditiis a hic?
+          At SEC Academy, we believe in nurturing not only academic potential but also the character and values that will 
+          guide students throughout their lives. The school emphasizes personal growth, responsibility, and a strong 
+          sense of community, creating an environment where students are encouraged to excel both inside and 
+          outside the classroom. With a dedicated team of educators, SEC Academy fosters a culture of respect, 
+          inclusivity, and collaboration, ensuring that every student feels valued and supported. 
+          The academy is also committed to preparing students for global challenges, providing 
+          opportunities for international exposure and career readiness through various partnerships, internships, 
+          and enrichment programs.
         </p>
 
      <div class="order">
       <p>
-        <h1>8</h1>
+        <h1>{{ faculties_num }}</h1>
         Faculties
 
-        <h1>65</h1>
-        Department
-      
-        <h1>5</h1>
-        Centers
+        <h1>{{ department_num }}</h1>
+        Departments
+    
+        <h1> {{courses_num}}</h1>
+        Courses
+
+        <h1> {{lecturers_num}}</h1>
+        Lecturers
       </p>
     </div>
       </aside>

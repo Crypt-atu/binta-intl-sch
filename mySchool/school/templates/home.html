@@ -7,7 +7,8 @@
           <li><a href={% url "contact" %}>Contacts</a></li>
           <li><a href={% url "courses" %}>Courses</a></li>
           <li><a href={% url "school-calendar" %}>Calendar Page</a></li>
-
+          <li><a href={% url "enrollment" %}>Enroll</a></li>
+          <li><a href={% url "fac_dep" %}>Faculties</a></li>
 
           <li><a href={% url "logout" %} style="color: red;">Logout</a></li> 
         </ul>
@@ -21,4 +22,22 @@
         <h1>YOU ARE WELCOME {{request.user.first_name}}</h1>
       </div>
     </section>
+    <h1 style='text-align:center'>Courses Offered by {{request.user.first_name}}</h1>
+    <div class="programs-container">
+        {% for course in courses %}
+        <div class="program-card">
+          <img
+            src="https://picsum.photos/350/200"
+            alt="Program Image"
+            class="program-image"
+          />
+          <div class="program-header">
+            <h3><a style="text-decoration: none; color:white" href={% url "detail" course.id %}>{{course.name}}</a></h3>
+          </div>
+          <div class="program-body">
+            <p class="department">Department of {{course.department}}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
 {% endblock section %}

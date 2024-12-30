@@ -1,0 +1,70 @@
+.form-container {
+    background: #732c44;
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    margin-top: 10%;
+    margin-left: 30%;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: aqua;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.checkbox-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    background-color: aquamarine;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 16px;
+}
+
+.checkbox-button input[type="checkbox"]:checked + span {
+    color: aqua;
+    font-weight: bold;
+    background: red;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.checkbox-button:hover {
+    background-color: aqua;
+    transform: translateY(-3px);
+}
+
+span {
+    margin-left: 30px;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 10px;
+    background-color: azure;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: coral;
+}

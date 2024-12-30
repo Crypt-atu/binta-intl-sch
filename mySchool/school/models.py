@@ -1,29 +1,38 @@
+#Imported Classes to be used here
 from django.db import models
-from django.contrib.auth.models import AbstractUser
-from django.contrib.auth.models import BaseUserManager
+from django.contrib.auth.models import AbstractUser, BaseUserManager
+from django.core.exceptions import ValidationError
+from django.db.models import Q
 
+#Models Created Here
+
+#Courses Table(Model)
 class Courses(models.Model):
     id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=50, blank=True, null=True)
-    description = models.TextField(null=True)  # Corrected the typo
+    description = models.TextField(null=True)
     code = models.CharField(max_length=10, blank=True, null=True)
     unit = models.CharField(max_length=10, blank=True, null=True)
-    department = models.ForeignKey('Departments', on_delete=models.DO_NOTHING, blank=True, null=True)
-    lecturer = models.ForeignKey('Lecturers', on_delete=models.DO_NOTHING, blank=True, null=True)
+    #A One to Many Field
+    department = models.ForeignKey('Departments', on_delete=models.SET_NULL, blank=True, null=True)
+    lecturer = models.ForeignKey('Lecturers', on_delete=models.SET_NULL, blank=True, null=True)
 
+    #Defination for name of the table
     class Meta:
         db_table = 'school_courses'
 
+    #String Representation for the class
     def __str__(self):
         return f'{self.name}'
 
-
+#Departments Table(Model)
 class Departments(models.Model):
     id = models.BigAutoField(primary_key=True)
     name = models.CharField(unique=True, max_length=100, blank=True, null=True)
     secretary = models.CharField(max_length=45, blank=True, null=True)
-    faculty = models.ForeignKey('Faculties', on_delete=models.DO_NOTHING, blank=True, null=True)
-    h_o_d = models.OneToOneField('Lecturers', on_delete=models.DO_NOTHING, db_column='h_o_d', blank=True, null=True)
+    faculty = models.ForeignKey('Faculties', on_delete=models.SET_NULL, related_name="departments", blank=True, null=True)
+    #A One to One Related Field
+    h_o_d = models.OneToOneField('Lecturers', on_delete=models.SET_NULL, db_column='h_o_d', blank=True, null=True)
 
     class Meta:
         db_table = 'school_departments'
@@ -31,11 +40,11 @@ class Departments(models.Model):
     def __str__(self):
         return f'{self.name}'
 
-
+#Faculties Table(Model)
 class Faculties(models.Model):
     id = models.BigAutoField(primary_key=True)
     name = models.CharField(unique=True, max_length=50, blank=True, null=True)
-    dean = models.OneToOneField('Lecturers', on_delete=models.DO_NOTHING, blank=True, null=True)
+    dean = models.OneToOneField('Lecturers', on_delete=models.SET_NULL, blank=True, null=True)
 
     class Meta:
         db_table = 'school_faculties'
@@ -43,10 +52,8 @@ class Faculties(models.Model):
     def __str__(self):
         return f'{self.name}'
 
-
+#Guardians Table(Model)
 class Guardians(models.Model):
-    OPTION = [('true', 'True'),
-                ('false', 'False')]
 
     id = models.BigAutoField(primary_key=True)
     first_name = models.CharField(max_length=50, blank=True, null=True)
@@ -56,7 +63,7 @@ class Guardians(models.Model):
     email = models.CharField(max_length=100, blank=True, null=True)
     relationship = models.CharField(max_length=50, blank=True, null=True)
     phone_number = models.CharField(max_length=15, blank=True, null=True)
-    active = models.CharField(max_length=5, choices=OPTION, null=True)
+    active = models.BooleanField(default=True)
     student = models.ForeignKey('Students', on_delete=models.CASCADE, blank=True, null=True)
 
     class Meta:
@@ -65,13 +72,13 @@ class Guardians(models.Model):
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
 
-
+#Lecturers Table(Model)
 class Lecturers(models.Model):
     id = models.BigAutoField(primary_key=True)
     first_name = models.CharField(max_length=50, blank=True, null=True)
     last_name = models.CharField(max_length=45, blank=True, null=True)
-    active = models.CharField(max_length=5, blank=True, null=True)
-    department = models.ForeignKey(Departments, on_delete=models.DO_NOTHING, blank=True, null=True)
+    active = models.BooleanField(default=True)
+    department = models.ForeignKey(Departments, on_delete=models.SET_NULL, related_name="lectures", blank=True, null=True)
 
     class Meta:
         db_table = 'school_lecturers'
@@ -80,6 +87,7 @@ class Lecturers(models.Model):
         return f'{self.first_name} {self.last_name}'
 
 
+#Levels Table(Model)
 class Levels(models.Model):
     id = models.BigAutoField(primary_key=True)
     student_level = models.CharField(max_length=5, blank=True, null=True)
@@ -90,7 +98,7 @@ class Levels(models.Model):
     def __str__(self):
         return f'{self.student_level}'
 
-
+#Result Table(Model)
 class Results(models.Model):
     id = models.BigAutoField(primary_key=True)
     attendance = models.IntegerField(blank=True, null=True)
@@ -99,8 +107,8 @@ class Results(models.Model):
     exam_scores = models.IntegerField(blank=True, null=True)
     total_scores = models.IntegerField(blank=True, null=True)
     grade = models.CharField(max_length=1, blank=True, null=True)
-    course = models.ForeignKey(Courses, on_delete=models.DO_NOTHING, blank=True, null=True)
-    student = models.ForeignKey('Students', on_delete=models.DO_NOTHING, blank=True, null=True)
+    course = models.ForeignKey(Courses, on_delete=models.SET_NULL, blank=True, null=True)
+    student = models.ForeignKey('Students', on_delete=models.SET_NULL, blank=True, null=True)
 
     class Meta:
         db_table = 'school_results'
@@ -108,7 +116,7 @@ class Results(models.Model):
     def __str__(self):
         return f'{self.student} Result'
 
-
+#Calendar Table(Model)
 class SchoolCalendar(models.Model):
     id = models.BigAutoField(primary_key=True)
     date = models.DateField(blank=True, null=True)
@@ -121,7 +129,10 @@ class SchoolCalendar(models.Model):
     def __str__(self):
         return f'{self.event}'
 
+from django.db import models
 
+#Making the Student table the main user authentication model
+#(Only Needed when you are trying to make another field what the user will use and login)
 class StudentManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
         if not email:
@@ -137,31 +148,34 @@ class StudentManager(BaseUserManager):
         extra_fields.setdefault('is_superuser', True)
         return self.create_user(email, password, **extra_fields)
 
-
+#Students Table(Model) Inheriting from the AbstractUser class
 class Students(AbstractUser):
-    GENDER = [('male', 'Male'),
-              ('female', 'Female')]
+    MALE = 'male'
+    FEMALE = 'female'
 
-    OPTION = [('true', 'True'),
-              ('false', 'False')]
+    GENDER_CHOICES = [
+        (MALE, 'Male'),
+        (FEMALE, 'Female'),
+    ]
 
+    username = None#Since it is not needed
     first_name = models.CharField(max_length=50, blank=True, null=True)
     middle_name = models.CharField(max_length=50, blank=True, null=True)
     last_name = models.CharField(max_length=50, blank=True, null=True)
-    username = models.CharField(max_length=150, unique=True, null=True, blank=True)  # Optional, override if needed
-    email = models.EmailField(unique=True, blank=True, null=True)  # Email as the primary identifier
+    email = models.EmailField(unique=True)  
     d_o_b = models.DateField(blank=True, null=True)
     address = models.CharField(max_length=45, blank=True, null=True)
     phone_number = models.CharField(max_length=11, blank=True, null=True)
-    gender = models.CharField(max_length=10, choices=GENDER, null=True)
-    active = models.CharField(max_length=6, choices=OPTION, null=True)
-    department = models.ForeignKey('Departments', on_delete=models.DO_NOTHING, blank=True, null=True)
-    level = models.ForeignKey('Levels', on_delete=models.DO_NOTHING, blank=True, null=True)
-    courses = models.ManyToManyField('Courses', related_name='courses')
+    gender = models.CharField(max_length=10, choices=GENDER_CHOICES, null=True)
+    active = models.BooleanField(default=True)
+    department = models.ForeignKey('Departments', on_delete=models.SET_NULL, blank=True, null=True)
+    level = models.ForeignKey('Levels', on_delete=models.SET_NULL, blank=True, null=True)
+    courses = models.ManyToManyField('Courses', related_name='students')
 
-    USERNAME_FIELD = 'email'  # Set email as the username field
-    REQUIRED_FIELDS = ['first_name', 'last_name']  # Ensure that 'email' is not in REQUIRED_FIELDS
+    USERNAME_FIELD = 'email'  # Use email as the username
+    REQUIRED_FIELDS = ['first_name', 'last_name']  
 
+    #calling from the Manger class above
     objects = StudentManager()
 
     class Meta:

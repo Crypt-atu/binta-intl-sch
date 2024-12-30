@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+
+{% block section %}
+{% for faculty, departments in faculties.items %}
+<div class="container">
+    <h1><a style="text-decoration: none; color:black;" href="{% url "detail-faculty" faculty.id %}">{{faculty.name}}</a></h1>
+    <ul>
+        {% for department in departments %}
+        <li><a style="text-decoration: none; color:black;" href="{% url "detail-department" department.id %}">{{department.name}}</a></li>
+            {% endfor %}
+    </ul>
+</div>
+{% endfor %}
+{% endblock section %}

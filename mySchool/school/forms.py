@@ -3,10 +3,13 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import Students
 from django.contrib.auth import authenticate
 
+# All Forms Here
+#Student Reg Form Inheriting from UserCreationForm
 class StudentRegistrationForm(UserCreationForm):
     first_name = forms.CharField(
         max_length=50,
         required=True,
+        #widget styles it according to your html and css styles
         widget=forms.TextInput(attrs={
             'placeholder': 'First Name',
             'id': 'first-name',
@@ -71,6 +74,7 @@ class StudentRegistrationForm(UserCreationForm):
         model = Students
         fields = ('email', 'first_name', 'middle_name', 'last_name', 'phone_number', 'address', 'date_of_birth', 'gender', 'password1', 'password2')
 
+#save function
     def save(self, commit=True):
         # Use the parent class's save method to handle password hashing and other details
         student = super().save(commit=False)
@@ -87,6 +91,7 @@ class StudentRegistrationForm(UserCreationForm):
             student.save()
         return student
     
+    #clean function
     def clean(self):
         cleaned_data = super().clean()
         password1 = cleaned_data.get("password1")
@@ -98,7 +103,7 @@ class StudentRegistrationForm(UserCreationForm):
         
         return cleaned_data
     
-
+#Student Login Form
 class StudentLoginForm(forms.Form):
     email = forms.EmailField(
         required=True,
@@ -128,4 +133,16 @@ class StudentLoginForm(forms.Form):
             if not user.is_active:
                 raise forms.ValidationError("This account is inactive.")
         return cleaned_data
+
+#Student Enrollment Form
+class EnrollmentForm(forms.ModelForm):
+    class Meta:
+        model = Students
+        fields = ['courses']
+
+        widgets = {
+            'courses': forms.CheckboxSelectMultiple(attrs={
+                'class': 'check-button'
+            })
+        }
 
