@@ -1,0 +1,121 @@
+{% extends "home.html" %} 
+{% block section %}
+<h2 style="color: black">REGISTERD COURSES AND RESULTS FOR {{request.user}}</h2>
+
+<table
+  style="
+    width: 100%;
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+  "
+>
+  <tr>
+    <td
+      style="
+        border: 1px solid black;
+        background-color: green;
+        color: white;
+        padding: 18px;
+      "
+    >
+      COURSE CODE
+    </td>
+    <td
+      style="
+        border: 1px solid black;
+        background-color: green;
+        color: white;
+        padding: 18px;
+      "
+    >
+      COURSE TITLE
+    </td>
+    <td
+      style="
+        border: 1px solid black;
+        background-color: green;
+        color: white;
+        padding: 18px;
+      "
+    >
+      COURSE UNIT
+    </td>
+    <td
+      style="
+        border: 1px solid black;
+        background-color: green;
+        color: white;
+        padding: 18px;
+      "
+    >
+      ATTENDANCE(/10)
+    </td>
+    <td
+      style="
+        border: 1px solid black;
+        background-color: green;
+        color: white;
+        padding: 18px;
+      "
+    >
+      ASSIGNMENT(/10)
+    </td>
+    <td
+      style="
+        border: 1px solid black;
+        background-color: green;
+        color: white;
+        padding: 18px;
+      "
+    >
+      TEST SCORE(/20)
+    </td>
+    <td
+      style="
+        border: 1px solid black;
+        background-color: green;
+        color: white;
+        padding: 18px;
+      "
+    >
+      EXAM SCORE(/60)
+    </td>
+    <td
+      style="
+        border: 1px solid black;
+        background-color: green;
+        color: white;
+        padding: 18px;
+      "
+    >
+      TOTAL SCORE(/100)
+    </td>
+    <td
+      style="
+        border: 1px solid black;
+        background-color: green;
+        color: white;
+        padding: 18px;
+      "
+    >
+      GRADE
+    </td>
+  </tr>
+
+  {% for result in results  %}
+  <tr>
+    <td style="border: 1px solid; padding: 18px">{{result.course.code}}</td>
+    <td style="border: 1px solid black">{{result.course.name}}</td>
+    <td style="border: 1px solid black">{{result.course.unit}}</td>
+    <td style="border: 1px solid black">{{result.attendance}}</td>
+    <td style="border: 1px solid black">{{result.assignment}}</td>
+    <td style="border: 1px solid black">{{result.test_score}}</td>
+    <td style="border: 1px solid black">{{result.exam_scores}}</td>
+    <td style="border: 1px solid black">{{result.total_scores}}</td>
+    <td style="border: 1px solid black">{{result.grade}}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock section %}

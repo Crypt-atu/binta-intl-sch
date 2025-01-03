@@ -107,7 +107,7 @@ class Results(models.Model):
     exam_scores = models.IntegerField(blank=True, null=True)
     total_scores = models.IntegerField(blank=True, null=True)
     grade = models.CharField(max_length=1, blank=True, null=True)
-    course = models.ForeignKey(Courses, on_delete=models.SET_NULL, blank=True, null=True)
+    course = models.ForeignKey(Courses, on_delete=models.SET_NULL, blank=True, null=True, related_name='courses')
     student = models.ForeignKey('Students', on_delete=models.SET_NULL, blank=True, null=True)
 
     class Meta:

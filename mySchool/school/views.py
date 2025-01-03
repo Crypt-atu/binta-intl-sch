@@ -137,3 +137,14 @@ class FacultyDetailView(DetailView):
     model = Faculties
     template_name = 'details_faculties.html'
 
+
+#Result View
+@login_required(login_url='login')
+def Result(request):
+    student = Students.objects.get(email=request.user.email)
+    results = Results.objects.filter(student = student)
+
+    context = {
+               'results':results}
+    return render(request, 'results.html', context)
+

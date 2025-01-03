@@ -5,6 +5,7 @@ urlpatterns = [
     #Path for Authenticated Users
     path('home/', views.home, name="home"),
     path('enroll/', views.enrollment, name='enrollment'),
+    path('result/', views.Result, name='result'),
     
     #Public Views
     path('index/', views.index, name='index'),
