@@ -1,0 +1,50 @@
+/* Guardian Form Styles */
+
+.registration-header {
+  background-color: #28a745;
+  text-align: center;
+  padding: 10px 7px;
+}
+div.form-div {
+  width: 100vw;
+  /* height: 100vh; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+div.form-div form {
+  background-color: #732c44;
+  padding: 10px;
+  border-radius: 10px;
+  width: 400px;
+}
+
+div.form-div form .register-container {
+  margin: 15px 0;
+}
+
+form input {
+  display: block;
+  width: 99%;
+  padding: 10px 0;
+}
+
+form label {
+  color: white;
+  padding-top: 10px;
+}
+
+form .select-gender {
+  width: 100%;
+  padding: 10px;
+}
+
+form .button {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+

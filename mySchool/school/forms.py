@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import Students
+from .models import Students, Guardians
 from django.contrib.auth import authenticate
 
 # All Forms Here
@@ -145,4 +145,96 @@ class EnrollmentForm(forms.ModelForm):
                 'class': 'check-button'
             })
         }
+
+
+#Guardian Registration Form
+class GuardianRegistrationForm(forms.ModelForm):
+    first_name = forms.CharField(
+        max_length=50,
+        required=True,
+        #widget styles it according to your html and css styles
+        widget=forms.TextInput(attrs={
+            'placeholder': 'First Name',
+            'class': 'Register-container',
+        })
+    )   
+    
+    last_name = forms.CharField(
+        max_length=50,
+        required=True,
+        #widget styles it according to your html and css styles
+        widget=forms.TextInput(attrs={
+            'placeholder': 'Last Name',
+            'class': 'Register-container',
+        })
+    )   
+
+    occupation = forms.CharField(
+        max_length=50,
+        required=True,
+        #widget styles it according to your html and css styles
+        widget=forms.TextInput(attrs={
+            'placeholder': 'Occupation',
+            'class': 'Register-container',
+        })
+    )
+
+    address = forms.CharField(
+        max_length=100,
+        required=True,
+        #widget styles it according to your html and css styles
+        widget=forms.TextInput(attrs={
+            'placeholder': 'Address',
+            'class': 'Register-container',
+        })
+    )      
+
+    email = forms.EmailField(
+        max_length=50,
+        required=True,
+        #widget styles it according to your html and css styles
+        widget=forms.EmailInput(attrs={
+            'placeholder': 'Email',
+            'class': 'Register-container',
+        })
+    )  
+
+    relationship = forms.CharField(
+        max_length=50,
+        required=True,
+        widget=forms.TextInput(attrs={
+            'placeholder': 'Relationship to Student',
+            'class': 'Register-container'
+        })
+    )
+
+    phone_number = forms.CharField(
+        max_length=11,
+        required=True,
+        widget=forms.TextInput(attrs={
+            'placeholder': 'Phone Number',
+            'class': 'Register-container'
+        })
+    )
+
+    
+    class Meta:
+        model = Guardians
+        fields = ['first_name', 'last_name', 'occupation', 'address', 'email', 'relationship', 'phone_number']
+
+
+    # def form_valid(self, form):
+    #     # Save the data manually to the model
+    #     Guardians.objects.create(
+    #         student=self.request.user,  # Link to the logged-in student
+    #         first_name=form.cleaned_data['first_name'],
+    #         last_name=form.cleaned_data['last_name'],
+    #         occupation=form.cleaned_data['occupation'],
+    #         address=form.cleaned_data['address'],
+    #         email=form.cleaned_data['email'],
+    #         relationship=form.cleaned_data['relationship'],
+    #         phone_number=form.cleaned_data['phone_number'],
+    #     )
+    #     return super().form_valid(form)
+
 

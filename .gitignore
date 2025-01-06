@@ -1,2 +1,4 @@
 #Ignore .env files
 mySchool/.env
+mySchool/__pycache__
+school/__pycache__

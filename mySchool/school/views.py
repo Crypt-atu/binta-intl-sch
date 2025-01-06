@@ -2,9 +2,10 @@ from django.shortcuts import render, redirect
 from .models import *
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
-from .forms import StudentRegistrationForm, StudentLoginForm, EnrollmentForm
+from .forms import StudentRegistrationForm, StudentLoginForm, EnrollmentForm, GuardianRegistrationForm
 from django.contrib.auth.decorators import login_required
-from django.views.generic import DetailView
+from django.views.generic import DetailView, CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 #Index Page VIew
@@ -147,4 +148,17 @@ def Result(request):
     context = {
                'results':results}
     return render(request, 'results.html', context)
+
+#Guadians Create Views
+class GuardianCreateView(LoginRequiredMixin, CreateView):
+    model = Guardians
+    form_class = GuardianRegistrationForm
+    template_name = "guardians.html"
+    success_url = 'home'
+    login_url = 'login'
+    
+
+    def form_valid(self, form):
+        form.instance.student = self.request.user  # Associate the guardian with the current user
+        return super().form_valid(form)
 
