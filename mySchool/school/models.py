@@ -115,6 +115,33 @@ class Results(models.Model):
 
     def __str__(self):
         return f'{self.student} Result'
+    
+    # #Caculation of total score
+    # def calculate_total_score(self):
+    #     self.total_scores = sum(filter(None, [self.attendance, self.assignment, self.test_score, self.exam_scores]))
+    #     self.save()
+    
+    # #Assign a grade based on the total scores.
+    # def assign_grade(self):
+    #     if self.total_scores is None:
+    #         self.grade = None
+    #     elif self.total_scores >= 80:
+    #         self.grade = 'A'
+    #     elif self.total_scores >= 75:
+    #         self.grade = 'B'
+    #     elif self.total_scores >= 60:
+    #         self.grade = 'C'
+    #     elif self.total_scores >= 50:
+    #         self.grade = 'D'
+    #     else:
+    #         self.grade = 'F'
+    #     self.save()
+
+    # def save(self, *args, **kwargs):
+    #     # Automatically calculate total scores and assign grade before saving
+    #     self.calculate_total_score()
+    #     self.assign_grade()
+    #     super().save(*args, **kwargs)
 
 #Calendar Table(Model)
 class SchoolCalendar(models.Model):

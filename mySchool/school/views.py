@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import DetailView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+
 # Create your views here.
 #Index Page VIew
 def index(request):
@@ -161,4 +162,5 @@ class GuardianCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.student = self.request.user  # Associate the guardian with the current user
         return super().form_valid(form)
+
 

@@ -1,4 +1,9 @@
 {% extends "home.html" %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" type="text/css" href={% static "style/guardian_form.css" %}/>
+{% endblock style %}
+
 {% block section %}
 <div class="registration-header">
         <h1>Guardian Registration Form</h1>

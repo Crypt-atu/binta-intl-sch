@@ -1,5 +1,6 @@
 from django.urls import path
 from school import views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     #Path for Authenticated Users
@@ -18,6 +19,20 @@ urlpatterns = [
     path('detail-faculty/<int:pk>/', views.FacultyDetailView.as_view(), name='detail-faculty'),
     path('detail-department/<int:pk>/', views.DepartmentDetailView.as_view(), name='detail-department'),
     path('faculty_department/', views.fac_dep, name="fac_dep"),
+
+    #Reset Password Url
+     path('password-reset/', auth_views.PasswordResetView.as_view(
+         template_name="password_reset_form.html"
+     ), name='password_reset'),
+    path('password-reset/done/', auth_views.PasswordResetDoneView.as_view(
+        template_name="password_reset_done.html"
+    ), name='password_reset_done'),
+    path('password-reset-confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(
+    template_name="password_reset_confirm.html"
+    ), name='password_reset_confirm'),
+    path('password-reset-complete/', auth_views.PasswordResetCompleteView.as_view(
+        template_name="password_reset_complete.html"
+    ), name='password_reset_complete'),
 
     #Path to the Login & Logout Views
     path('login/', views.student_login, name = 'login'),

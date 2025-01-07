@@ -39,6 +39,8 @@
             <p class="department">Department of {{course.department}}</p>
           </div>
         </div>
+        {% empty %}
+        <p>No Course Found</p>
         {% endfor %}
       </div>
 {% endblock section %}
